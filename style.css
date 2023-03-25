@@ -3,7 +3,7 @@
 
 body {
    background-color: rgb(197, 255, 196);
-   overflow: hidden;
+   /* overflow: hidden; */
 }
 
 * {
