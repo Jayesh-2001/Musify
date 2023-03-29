@@ -35,12 +35,14 @@ masterPlay.addEventListener('click', () => {
       masterPlay.classList.remove('fa-play-circle');
       masterPlay.classList.add('fa-pause-circle');
       gif.style.opacity = 1;
+      masterSongName.classList.remove('masterSong');
    }
    else {
       audioElement.pause();
       masterPlay.classList.remove('fa-pause-circle');
       masterPlay.classList.add('fa-play-circle');
       gif.style.opacity = 0;
+      masterSongName.classList.add('masterSong');
    }
 })
 // Listen to Events
@@ -74,6 +76,7 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) =>
       gif.style.opacity = 1;
       masterPlay.classList.remove('fa-play-circle');
       masterPlay.classList.add('fa-pause-circle');
+      masterSongName.classList.remove('masterSong');
    })
 })
 
