@@ -9,6 +9,7 @@ let gif = document.getElementById('gif');
 let masterSongName = document.getElementById('masterSongName');
 let songItems = Array.from(document.getElementsByClassName('songItem'));
 
+// Creating the lists of the songs
 let songs = [
    { songName: "Interstellar Theme Song", filePath: "songs/1.mp3", coverPath: "covers/1.jfif" },
    { songName: "TheFatRat - MAYDAY", filePath: "songs/2.mp3", coverPath: "covers/2.jfif" },
@@ -22,13 +23,14 @@ let songs = [
    { songName: "Coldplay - Hymn For The Weekend", filePath: "songs/5.mp3", coverPath: "covers/5.jfif" },
 ]
 
+// Updating the over picture and song name
 songItems.forEach((element, i) => {
    element.getElementsByTagName("img")[0].src = songs[i].coverPath;
    element.getElementsByClassName("songName")[0].innerText = songs[i].songName;
 })
 
 
-// Handle play/pause click
+// Handle 'play/pause' click
 masterPlay.addEventListener('click', () => {
    if (audioElement.paused || audioElement.currentTime <= 0) {
       audioElement.play();
@@ -52,9 +54,11 @@ audioElement.addEventListener('timeupdate', () => {
    myProgressBar.value = progress;
 })
 
+// Update song progress when clicked anywhere on seekbar
 myProgressBar.addEventListener('change', () => {
    audioElement.currentTime = myProgressBar.value * audioElement.duration / 100;
 })
+
 
 const makeAllPlays = () => {
    Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) => {
@@ -80,6 +84,7 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) =>
    })
 })
 
+// Handle 'next' button click
 document.getElementById('next').addEventListener('click', () => {
    if (songIndex >= 9) {
       songIndex = 0
@@ -96,6 +101,7 @@ document.getElementById('next').addEventListener('click', () => {
 
 })
 
+// Handle 'previous' button click
 document.getElementById('previous').addEventListener('click', () => {
    if (songIndex <= 0) {
       songIndex = 0
